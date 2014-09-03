@@ -8,12 +8,15 @@ Drawing audio on a canvas [here](https://github.com/cwilso/Audio-Buffer-Draw/blo
 
 
 install binaryjs:
+
     npm install binaryjs
 
 and wav:
+
     npm install wav
 
 run:
+
     node js-server/server.js
     
 and open index.html in a browser.
