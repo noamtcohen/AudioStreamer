@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Audio Streamer</title>
+
+    <link rel="shortcut icon" href="img/miv.ico">
+
+    <link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/site.css">
+
+    <script src="js-client/jquery-1.11.1.min.js"></script>
+    <script src="js-client/binary.js"></script>
+    <script src="js-client/site.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+      <h1><span class="glyphicon glyphicon-record"></span> Audio Streamer <small>realtime to node</small></h1>
+    </div>
+
+    <button class="btn btn-primary" id="start-rec-btn">Start Recording</button>
+    <button class="btn btn-primary" id="stop-rec-btn">Stop Recording</button>
+
+    <div id="canvas-container">
+        <canvas width="800" height="100" id="canvas"></canvas>
+    </div>
+</div>
+
+</body>
+</html>

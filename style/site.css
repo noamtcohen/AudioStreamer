@@ -1,0 +1,8 @@
+#canvas-container{
+    margin-top: 20px;
+    border: 1px dashed lightblue;
+    align-content: center;
+}
+#icon{
+    height: 40px;
+}
