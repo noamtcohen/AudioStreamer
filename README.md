@@ -11,7 +11,7 @@ install binaryjs:
 
     npm install binaryjs
 
-and wav:
+and node-wav:
 
     npm install wav
 
