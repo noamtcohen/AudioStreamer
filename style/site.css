@@ -3,6 +3,10 @@
     border: 1px dashed lightblue;
     align-content: center;
 }
+.page-header .glyphicon{
+    vertical-align: bottom;
+}
+
 #icon{
     height: 40px;
 }

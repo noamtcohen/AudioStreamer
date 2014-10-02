@@ -20,10 +20,6 @@ server.on('connection', function(client) {
         });
 
         stream.pipe(fileWriter);
-        stream.on('end', function() {
-            fileWriter.end();
-            console.log("Stream End")
-        });
     });
 
     client.on('close', function() {
