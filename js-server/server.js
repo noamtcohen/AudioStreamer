@@ -4,6 +4,10 @@
 var binaryServer = require('binaryjs').BinaryServer;
 var wav = require('wav');
 
+var connect = require('connect');
+var serveStatic = require('serve-static');
+connect().use(serveStatic('.')).listen(8080);
+
 var server = binaryServer({port: 9001});
 
 server.on('connection', function(client) {
