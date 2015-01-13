@@ -15,6 +15,10 @@ and node-wav:
 
     npm install wav
 
+install connect
+
+    npm install connect serve-static
+   
 run:
 
     node js-server/server.js
