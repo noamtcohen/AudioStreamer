@@ -23,6 +23,4 @@ run:
 
     node js-server/server.js
     
-and open index.html in a browser.
-
-(the server is the binaryjs server and will not serve index.html).
+and open http://localhost:8080/index.html in a browser.
