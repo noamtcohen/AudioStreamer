@@ -7,17 +7,9 @@ Tutorial [here](http://blog.groupbuddies.com/posts/39-tutorial-html-audio-captur
 Drawing audio on a canvas [here](https://github.com/cwilso/Audio-Buffer-Draw/blob/master/js/audiodisplay.js)
 
 
-install binaryjs:
+install dependencies:
 
-    npm install binaryjs
-
-and node-wav:
-
-    npm install wav
-
-install connect
-
-    npm install connect serve-static
+    npm install
    
 run:
 
