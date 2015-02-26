@@ -7,20 +7,12 @@ Tutorial [here](http://blog.groupbuddies.com/posts/39-tutorial-html-audio-captur
 Drawing audio on a canvas [here](https://github.com/cwilso/Audio-Buffer-Draw/blob/master/js/audiodisplay.js)
 
 
-install binaryjs:
+install dependencies:
 
-    npm install binaryjs
-
-and node-wav:
-
-    npm install wav
-
-install connect
-
-    npm install connect serve-static
+    npm install
    
 run:
 
-    node js-server/server.js
+    npm start
     
 and open http://localhost:8080/index.html in a browser. For remote installations, you can edit line 17 of js-client/site.js with your domain name/ip.
