@@ -13,6 +13,6 @@ install dependencies:
    
 run:
 
-    node js-server/server.js
+    npm start
     
 and open http://localhost:8080/index.html in a browser. For remote installations, you can edit line 17 of js-client/site.js with your domain name/ip.
