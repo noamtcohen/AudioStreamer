@@ -17,7 +17,7 @@ server.on('connection', function(client) {
     client.on('stream', function(stream, meta) {
         console.log("Stream Start")
         var fileName = "recordings/"+ new Date().getTime()  + ".wav"
-        var fileWriter = new wav.FileWriter(fileName, {
+        fileWriter = new wav.FileWriter(fileName, {
             channels: 1,
             sampleRate: 44100,
             bitDepth: 16
