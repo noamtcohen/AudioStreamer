@@ -13,10 +13,12 @@ $(function() {
     var context;
     var bStream;
 
+    var resampleRate = 16000;
+
     $("#start-rec-btn").click(function(){
         client = new BinaryClient('ws://localhost:9001');
         client.on('open', function() {
-            bStream= client.createStream();
+            bStream= client.createStream({sampleRate:resampleRate});
         });
 
         if(context)
@@ -59,7 +61,10 @@ $(function() {
         var canvas = document.getElementById("canvas");
         drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), left );
 
-        bStream.write(convertFloat32ToInt16(left));
+        reSample(e.inputBuffer,resampleRate,function(reSampledBuffer){
+            var channel = reSampledBuffer.getChannelData(0);
+            bStream.write(convertFloat32ToInt16(channel));
+        });
     }
 
     function convertFloat32ToInt16(buffer) {

@@ -15,11 +15,12 @@ server.on('connection', function(client) {
     var fileWriter = null;
 
     client.on('stream', function(stream, meta) {
-        console.log("Stream Start")
+
+        console.log("Stream Start@" + meta.sampleRate +"Hz");
         var fileName = "recordings/"+ new Date().getTime()  + ".wav"
         fileWriter = new wav.FileWriter(fileName, {
             channels: 1,
-            sampleRate: 44100,
+            sampleRate: meta.sampleRate,
             bitDepth: 16
         });
 
