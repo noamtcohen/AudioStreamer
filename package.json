@@ -20,6 +20,7 @@
   "dependencies": {
     "binaryjs": "^0.2.1",
     "connect": "^3.3.4",
+    "opener": "^1.4.1",
     "serve-static": "^1.9.1",
     "wav": "^0.1.2"
   }
