@@ -18,6 +18,7 @@ binaryFeatures.useArrayBufferView = !binaryFeatures.useBlobBuilder && (function(
   }
 })();
 binaryFeatures.supportsBinaryWebsockets = (function(){
+  return true;
   try {
     var wstest = new WebSocket('ws://null');
     wstest.onerror = function(){};
