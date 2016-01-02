@@ -5,6 +5,10 @@ var binaryServer = require('binaryjs').BinaryServer;
 var wav = require('wav');
 var opener = require('opener');
 
+var fs = require('fs');
+if(!fs.existsSync("recordings"))
+    fs.mkdirSync("recordings");
+    
 var connect = require('connect');
 var serveStatic = require('serve-static');
 connect().use(serveStatic('public')).listen(8080);
