@@ -8,7 +8,7 @@ $(function () {
         context,
         bStream,
         contextSampleRate = (new AudioContext()).sampleRate;
-        resampleRate = 8000,
+        resampleRate = contextSampleRate,
         worker = new Worker('js/worker/resampler-worker.js');
 
     worker.postMessage({cmd:"init",from:contextSampleRate,to:resampleRate});
@@ -19,7 +19,7 @@ $(function () {
     }, false);
 
     $("#start-rec-btn").click(function () {
-        client = new BinaryClient('ws://localhost:9001');
+        client = new BinaryClient('wss://'+location.host);
         client.on('open', function () {
             bStream = client.createStream({sampleRate: resampleRate});
         });
