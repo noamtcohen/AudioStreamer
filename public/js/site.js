@@ -19,6 +19,7 @@ $(function () {
     }, false);
 
     $("#start-rec-btn").click(function () {
+        close();
         client = new BinaryClient('wss://'+location.host);
         client.on('open', function () {
             bStream = client.createStream({sampleRate: resampleRate});
@@ -95,9 +96,16 @@ $(function () {
     }
 
     $("#stop-rec-btn").click(function () {
-        recorder.disconnect();
-        client.close();
+        close();
     });
+
+    function close(){
+        console.log('close');
+        if(recorder)
+            recorder.disconnect();
+        if(client)
+            client.close();
+    }
 });
 
 navigator.getUserMedia = navigator.getUserMedia ||
