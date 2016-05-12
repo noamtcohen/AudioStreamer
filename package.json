@@ -20,6 +20,7 @@
   "dependencies": {
     "binaryjs": "^0.2.1",
     "connect": "^3.3.4",
+    "lame": "^1.2.3",
     "opener": "^1.4.1",
     "serve-static": "^1.9.1",
     "uaparser": "0.0.2",
