@@ -9,6 +9,7 @@ var binaryServer = require('binaryjs').BinaryServer,
     connect = require('connect'),
     serveStatic = require('serve-static'),
     UAParser = require('./ua-parser'),
+    CONFIG = require("../config.json"),
     lame = require('lame');
 
 var uaParser = new UAParser();
@@ -46,22 +47,23 @@ server.on('connection', function(client) {
         console.log("Stream Start@" + meta.sampleRate +"Hz");
         var fileName = "recordings/"+ ua.os.name +"-"+ ua.os.version +"_"+ new Date().getTime();
         
-        /* encode in WAV */
-        /*fileWriter = new wav.FileWriter(fileName + ".wav", {
-            channels: 1,
-            sampleRate: meta.sampleRate,
-            bitDepth: 16
-        });
-        stream.pipe(fileWriter);*/
-        
-        /* encode in MP3 */
-        writeStream = fs.createWriteStream( fileName + ".mp3" );
-        stream.pipe( new lame.Encoder(
-          {
-            channels: 1, bitDepth: 16, sampleRate: 44100, bitRate: 128, outSampleRate: 22050, mode: lame.MONO
-          })
-        )
-        .pipe( writeStream );
+        if(CONFIG.AudioEnconding==="WAV"){
+            fileWriter = new wav.FileWriter(fileName + ".wav", {
+                channels: 1,
+                sampleRate: meta.sampleRate,
+                bitDepth: 16
+            });
+            stream.pipe(fileWriter);
+        }
+        else if(CONFIG.AudioEncoding==="MP3"){
+            writeStream = fs.createWriteStream( fileName + ".mp3" );
+            stream.pipe( new lame.Encoder(
+              {
+                channels: 1, bitDepth: 16, sampleRate: 44100, bitRate: 128, outSampleRate: 22050, mode: lame.MONO
+              })
+            )
+            .pipe( writeStream );
+        }
     });
 
     client.on('close', function() {
