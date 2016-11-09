@@ -55,7 +55,7 @@ server.on('connection', function(client) {
                     bitDepth: 16 });
                 stream.pipe(fileWriter);
             break;
-            
+
             case "MP3":
                 writeStream = fs.createWriteStream( fileName + ".mp3" );
                 stream.pipe( new lame.Encoder(
@@ -67,12 +67,15 @@ server.on('connection', function(client) {
             break;
         };
 
-        client.on('close', function() {
-            if ( fileWriter != null ) {
-                fileWriter.end();
-            } else if ( writeStream != null ) {
-                writeStream.end();
-            }
-            console.log("Connection Closed");
-        });
     });
+
+    
+    client.on('close', function() {
+        if ( fileWriter != null ) {
+            fileWriter.end();
+        } else if ( writeStream != null ) {
+            writeStream.end();
+        }
+        console.log("Connection Closed");
+    });
+});
