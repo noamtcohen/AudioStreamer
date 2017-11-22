@@ -60,7 +60,7 @@ server.on('connection', function(client) {
                 writeStream = fs.createWriteStream( fileName + ".mp3" );
                 stream.pipe( new lame.Encoder(
                 {
-                    channels: 1, bitDepth: 16, sampleRate: 44100, bitRate: 128, outSampleRate: 22050, mode: lame.MONO
+                    channels: 1, bitDepth: 16, sampleRate: meta.sampleRate, bitRate: 128, outSampleRate: 22050, mode: lame.MONO
                 })
                 )
                 .pipe( writeStream );
